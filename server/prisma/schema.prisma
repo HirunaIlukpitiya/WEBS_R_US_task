@@ -1,0 +1,22 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Box {
+  id     Int     @id @default(autoincrement())
+  name   String
+  length Float
+  width  Float
+  height Float
+}
+
+model Pricing {
+  id              Int     @id @default(autoincrement())
+  ratePerCubicM   Float   @default(472.41)
+  deliveryCharge  Float   @default(5.0)
+}
